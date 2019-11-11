@@ -316,9 +316,9 @@ function carMaker(odometer) {
   const obj = {};
   obj.odometer = odometer;
   obj.drive = function(distance){
-    return obj.odometer + distance;
+    return obj.odometer += distance;
   }
-  return odometer;
+  return obj;
 }
 
 /// ////// END OF CHALLENGE /////////
