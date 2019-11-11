@@ -40,7 +40,8 @@ function addNumbers(num1, num2) {
  * }
 */
 function makePersonObject(id, name, email) {
-  return obj = {id, name, email};
+  const obj = {id, name, email};
+  return obj; 
 }
 
 /**
@@ -57,7 +58,8 @@ function makePersonObject(id, name, email) {
  * the returned value should look like `Hello, my name is Leia`.
 */
 function getName(obj) {
-  return "Hello, my name is " + obj["name"];
+  const output = "Hello, my name is " + obj["name"];
+  return output;
 }
 
 /**
@@ -73,8 +75,17 @@ function getName(obj) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
+function makeSmartPerson(name) {
+  const obj = {
+    name: name,
+    sum: function(num1, num2){
+      return num1 + num2;
+    },
+    speak: function() {
+      return "Hello, my name is" + this.name;
+    }
+  }
+  return obj;
 }
 
 
