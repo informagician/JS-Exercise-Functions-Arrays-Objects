@@ -258,15 +258,11 @@ function getOlderCars(inventory,max) {
 */
 function getGermanCars(inventory) {
   const qty = inventory.length;
-  const arr = [];
+  let arr = [];
   for (let i=0 ; i < qty ; i++) {
-    if (inventory[i].car_make == "Audi" /* || inventory[i].car_make == "Mercedes-Benz" || inventory[i].car_make == "Volkswagen" */) {
+    if (inventory[i].car_make == "Audi" || inventory[i].car_make == "Mercedes-Benz" || inventory[i].car_make == "Volkswagen" || inventory[i].car_make == "BMW") {
       arr.push(inventory[i]);
-    } else if (inventory[i].car_make == "Mercedes-Benz") {
-      arr.push(inventory[i]);
-    } else if (inventory[i].car_make == "Volkswagen") {
-      arr.push(inventory[i]);
-    }
+    } 
   }
   return arr;
 }
