@@ -238,9 +238,9 @@ function getOlderCars(inventory,max) {
   qty = inventory.length;
   const arr = [];
   for (let i = 0; i < qty; i++) {
-    if (inventory[i].car_year < max) {
+    if (inventory[i].car_year <= max) {
       arr.push(inventory[i]);
-    }
+    } 
   }
   return arr;
 }
