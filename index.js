@@ -181,9 +181,9 @@ function getLastCarInfo(inventory) {
 */
 function getCarInfoById(inventory,id) {
 
-  let qty = inventory.length;
+  const qty = inventory.length;
   let index;
-  for (var i=0; i < qty; i++) {
+  for (let i=0; i < qty; i++) {
     if (inventory[i].id == id) {
       index = i;
     }
@@ -200,7 +200,17 @@ function getCarInfoById(inventory,id) {
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
 function sortCarInventory(inventory) {
-  inventory.sort();
+  inventory.sort(function(a,b) {
+    var nameA = a.car_model.toUpperCase();
+    var nameB = b.car_model.toUpperCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if(nameA > nameB){
+      return 1;
+    }
+    return 0;
+  });
   return inventory;
 }
 
@@ -235,7 +245,7 @@ function getModelYears(inventory) {
  * in the same order as they appear in the original inventory.
 */
 function getOlderCars(inventory,max) {
-  qty = inventory.length;
+  const qty = inventory.length;
   const arr = [];
   for (let i = 0; i < qty; i++) {
     if (inventory[i].car_year <= max) {
@@ -302,8 +312,13 @@ const argTimesTwo = (num) => { return num * 2;}
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(/* code here */) {
-  /* code here */
+function carMaker(odometer) {
+  const obj = {};
+  obj.odometer = odometer;
+  obj.drive = function(distance){
+    return obj.odometer + distance;
+  }
+  return odometer;
 }
 
 /// ////// END OF CHALLENGE /////////
